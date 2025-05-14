@@ -27,18 +27,16 @@ public class KnightController : MonoBehaviour
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _state = KnightState.Walk; // Awalannya langsung jalan
+        _state = KnightState.Idle; 
     }
 
     void Update()
     {
-        // Jump input
         if (Detector.IsGrounded && Input.GetKeyDown(KeyCode.UpArrow))
         {
             _jumpRequest = true;
         }
 
-        // Update animation state
         if (Detector.IsGrounded)
         {
             if (_jumpRequest)
@@ -59,12 +57,10 @@ public class KnightController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Selalu bergerak ke kanan
         Vector2 velocity = _rigidbody.linearVelocity;
         velocity.x = Speed;
         _rigidbody.linearVelocity = velocity;
 
-        // Pastikan menghadap kanan (opsional)
         Vector3 scale = transform.localScale;
         if (scale.x < 0) scale.x *= -1f;
         transform.localScale = scale;

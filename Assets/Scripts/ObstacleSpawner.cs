@@ -37,10 +37,8 @@ public class ObstacleSpawner : MonoBehaviour
             float x = startX + i * horizontalSpacing;
             Vector3 spawnPos = new Vector3(x, spawnY, 0f);
 
-            // Jangan jadikan child dari spawner, biarkan di root scene
             GameObject newObstacle = Instantiate(obstaclePrefab, spawnPos, Quaternion.identity);
 
-            // Optional: destroy obstacle setelah beberapa waktu agar tidak menumpuk
             Destroy(newObstacle, 10f); 
         }
     }

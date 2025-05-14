@@ -8,7 +8,6 @@ public class Obstacle : MonoBehaviour
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 
-        // Hancurkan jika sudah jauh ke kiri (di luar layar)
         if (transform.position.x < Camera.main.transform.position.x - 15f)
         {
             Destroy(gameObject);

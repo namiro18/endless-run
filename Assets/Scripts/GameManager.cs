@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     isGameOver = true;
     Debug.Log("Game Over! Final Score: " + Mathf.FloorToInt(score));
 
-    Time.timeScale = 0f; // ❗ Hentikan seluruh game
+    Time.timeScale = 0f; 
 
     gameOverPanel.SetActive(true);
 
